@@ -4,6 +4,6 @@
 
 En este tema veremos los primeros programas del curso:
 
--Git
--Visual Studio Code
--GitHub
+-Git <bir>
+-Visual Studio Code <bir>
+-GitHub <bir>
