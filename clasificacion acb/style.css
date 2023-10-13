@@ -1,0 +1,77 @@
+
+body{
+
+    padding-left: 30%;
+    padding-top: 10%;
+    
+}
+
+table{
+
+    width: 650px;
+    height: 300px;
+    border: 2px solid black;
+    border-radius: 8px;
+    border-spacing: 0px;
+    padding-bottom: 3%;
+
+}
+
+td.ajuste{
+
+    padding-left: 35px;
+}
+
+
+
+tr.encabezado{
+
+    font-family: arial,sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: #FFFF;
+    height: 10%;
+    background-color: #212121;
+    height: 60px;
+
+}
+
+tr.temporada{
+
+    height: 5px;
+}
+
+
+
+p{
+
+   padding-left: 20px; 
+
+}
+
+td.color{
+
+    background-color: #3c4043;
+    color: #9aa0a6;
+}
+
+
+tr.apartados{
+
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color:#FFFF;
+    background-color: #212121;
+    height: 48px;
+}
+
+td.bloque{
+
+    padding-left: 5%;
+}
+
+div{
+
+    background-color: #252627;
+}
