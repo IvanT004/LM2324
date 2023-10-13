@@ -14,12 +14,14 @@ table{
     border-radius: 8px;
     border-spacing: 0px;
     padding-bottom: 3%;
+    background-color: #202124;
 
 }
 
 td.ajuste{
 
     padding-left: 35px;
+    background-color: #202124;
 }
 
 
@@ -42,16 +44,16 @@ tr.temporada{
 }
 
 
-
 p{
 
    padding-left: 20px; 
+   height: 8px;
 
 }
 
 td.color{
 
-    background-color: #3c4043;
+    background-color: #303134;
     color: #9aa0a6;
 }
 
@@ -61,7 +63,7 @@ tr.apartados{
     font-family: arial,sans-serif;
     font-size: 12px;
     text-align: center;
-    color:#FFFF;
+    color:#bfbfbf;
     background-color: #212121;
     height: 48px;
 }
@@ -69,9 +71,17 @@ tr.apartados{
 td.bloque{
 
     padding-left: 5%;
+
 }
 
-div{
+tr.cuerpo{
 
-    background-color: #252627;
+    background-color:#202124;
+    text-align: center;
+    color: #bdc1c6;
+}
+
+hr{
+    width: 610px;
+    background-color: grey;
 }
