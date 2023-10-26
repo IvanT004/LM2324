@@ -1,0 +1,16 @@
+p{/**esto es un selector**/
+    color:blue;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    color:blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+
+    background-color: grey;
+
+}
