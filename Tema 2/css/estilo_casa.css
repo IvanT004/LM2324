@@ -1,0 +1,143 @@
+
+
+        #fachada{
+ 
+            background-color: rgb(194, 139, 67);
+            top: 200px;
+            left: 310px;
+            width: 600px;
+            height: 350px;
+            margin: 50px;
+            position: absolute;
+
+        }
+
+        #ventana{
+
+            background-color: black;
+            top: 320px;
+            left: 350px;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            position: absolute;
+
+        }
+
+        .ventana{
+
+            background-color: black;
+            top: 320px;
+            left: 775px;
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            position: absolute;
+
+
+        }
+
+        #cristal{
+
+            background-color: rgb(98, 209, 209);
+            height: 50px;
+            width: 50px;
+            z-index: 1;
+
+        }
+
+        #puerta{
+
+            background-color: maroon;
+            top: 350px;
+            left: 550px;
+            width: 120px;
+            height: 200px;
+            margin: 50px;
+            position: absolute;
+
+
+        }
+
+        #pomo{
+            background-color: gold;
+
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            left: 200px;
+            top: 90px;
+            margin: 30%;
+            position: absolute;
+            
+
+        }
+
+        #techo{
+
+            background-color: #141414cc;
+            top: 150px;
+            left: 260px;
+            width: 700px;
+            height: 50px;
+            margin: 50px;
+            position: absolute;
+
+        }
+
+        body{
+
+            background-image: url(../imagenes/cielo.jpg);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            z-index: -1;
+            margin: 0px;
+
+        }
+
+        #cesped{
+
+            background-image: url(../imagenes/cesped.jpg);
+            width: 1366px;
+            height: 200px;
+            margin-top: 150px;
+            position: relative;
+            z-index: -1;
+            
+        }
+
+        #tronco_arbol{
+
+            width: 20px;
+            height: 300px;
+            margin-top: 150px;
+            margin-left: 100px;
+            position: absolute;
+            background-color: brown;
+
+        }
+
+        #copa_arbol{
+
+            width: 150px;
+            height: 150px;
+            margin-left: 30px;
+            margin-top: 150px;
+            background-color: green;
+
+        }
+
+        #sol{
+
+            width: 150px;
+            height: 150px;
+            top: 70px;
+            margin-left: 1100px;
+            background-color: yellow;
+            border-radius: 100%;
+            position: absolute;
+
+        }
+
+
+
