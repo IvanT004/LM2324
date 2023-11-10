@@ -1,18 +1,70 @@
-#publi_up{ 
 
-    width: 1280px;
-    height:300px;
-    background-image: url("../imagenes/macbook.jpg");
-}
 body{
 
-    margin-left: 0px;
-    margin-top: 0px;
+    margin: 0;
+
 }
 
-#publi_lateral{
 
-
-    width: 25%;
+#imagen{
     
+    background-image: url(../imagenes/banner.png);
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    
+}
+#caja{
+
+    top: 100px;
+    position: relative;
+}
+
+#publi_lateral_izquierda{
+
+    background-color: bisque;
+    height: 1024px;
+    width: 25%;
+    z-index: -1;
+    position: fixed;
+    
+    
+}
+
+#publi_lateral_derecha{
+
+    background-image: url(../imagenes/burguer.jpg);
+    height: 1024px;
+    width: 25%;
+    z-index: -1;
+    margin-left: 75%; 
+    position: fixed;
+}
+
+#imagen_superior{
+
+    background-image: url(../imagenes/latin.jpg);
+    height: 10%;
+    width: 10%;
+
+
+}
+
+#imagen_inferior{
+
+    background-image: url(../imagenes/latin.jpg);
+    height: 10%;
+    width: 10%;
+
+}
+
+
+#contenido{
+
+    top: 100px;
+    margin-left: 25%;
+    margin-right: 25%;
+    z-index: -1;
+    position: relative;
+
 }
