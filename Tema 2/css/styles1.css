@@ -1,10 +1,17 @@
 /*Esta es la hoja de estiilos del ejercicio 1 CSS Flexbox del  modelo de examen*/
+/* 24 de noviembre */
+html {
+    background-color: lightgrey;
+    font-family: trebuchet, geneva, sans-serif;
+    background: url('../imagenes/bg.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover; /* Compatibilidad navegador Safari */
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
 body{
-
-    font-family: 'Trebuchet MS', 'Geneva', sans-serif;
-    background: url('../imagenes/bg.jpg') no-repeat center center fixed;
-    background-size: cover; /*Para que cubra toda la pantalla*/ 
+    margin:0;
 }
 
 p::first-letter{
@@ -39,6 +46,7 @@ nav{/*Barra de navegación*/
     background-color: #ebcd7c;
     border-radius: 20px;
     padding: 5px 0px;
+    order: 2;
 }
 
 nav a{/*Estilos para enlaces dentro de la barra de navegacion*/
@@ -69,7 +77,7 @@ a{
 
 /*A partir de aqui vamos a cambiar la disposicion de los elementos cuando el tamaño de la pantalla sea
 superior a 480px*/
-@media  screen and (min-width: 480px) {
+@media  screen and (min-width: 560px) {
 
     body{
         
@@ -84,15 +92,17 @@ superior a 480px*/
 
         display: flex;
         flex-wrap: wrap;
-        border-bottom: 0.5rem solid black;
+        box-sizing: border-box;
+        border-bottom: 0.5rem solid;
+        order:3;
     }
     
-    nav, header{
-
-        order: -1;
-
+    header{
+        order: 1;
     }
-
+    nav{
+        order: 2;
+    }
     article{
 
         flex: 75%;
@@ -101,6 +111,11 @@ superior a 480px*/
     aside{
 
         flex: 25%;
+    }
+    
+    footer{
+
+        order:4;
     }
 }
 
