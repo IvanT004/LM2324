@@ -10,6 +10,11 @@ html{
     background-color: #970043;
 }
 
+*{
+
+    box-sizing: border-box;
+}
+
 body{
     margin:0px;
 
@@ -17,26 +22,28 @@ body{
 
 header{ /*Estilo encabezado*/
 
-    box-sizing: border-box;
-    font-weight:bolder;
+    font-weight:bolder; 
+    text-align: center;
+    font-size: 30px;
     margin: 10px 10px 0px 10px;
     background-color: #ffd100;
-    text-align: center;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 
 }
 
+
 aside{/*Estilo del lateral izquierdo*/
-    box-sizing: border-box;
+
+    float: left;
     width:25%;
     height: auto;
    
 }
 
 article{
-    box-sizing: border-box;
-    margin-left: 25%;
+    
+    display:block;
     width: 50%;
     height: auto;
     background-color: #f2f2f2;
@@ -46,9 +53,7 @@ article{
 
 .aside_right{
 
-    box-sizing: border-box;
-    margin-left: 75%;
-    text-align: center;
+    float: right;
     width: 25%;
     height: auto;    
 }
@@ -65,7 +70,6 @@ article{
 .img{
 
     max-width: 100%;
-    text-align: center;
 
 }
 
@@ -77,11 +81,13 @@ a{
 
 .a_main{color: #ffd100;}
 
+
 p::first-letter{
 
-font-size: 100%;
-font-weight: bold;
-color: black;
+    font-size: 100%;
+    font-weight: bold;
+    color: black;
+
 
 }
 
