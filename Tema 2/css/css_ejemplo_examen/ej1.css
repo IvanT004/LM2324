@@ -1,3 +1,43 @@
+/*
+*{
+
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{ 
+
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    background-color: #970043;
+}
+
+article{
+
+    width: 50%;
+    background-color: #f2f2f2;
+}
+
+article img {
+
+    border-radius: 10px;
+    max-width: 100%;
+    padding-bottom: 10px;
+}
+
+aside, .aside_right{
+
+    width:25%;
+}
+
+aside img{
+
+    max-width: 100%;
+}
+*/
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 html{
@@ -17,11 +57,13 @@ html{
 
 body{
     margin:0px;
+    padding:0px;
 
 }
 
 header{ /*Estilo encabezado*/
 
+    display:flex;
     font-weight:bolder; 
     text-align: center;
     font-size: 30px;
@@ -34,15 +76,15 @@ header{ /*Estilo encabezado*/
 
 
 aside{/*Estilo del lateral izquierdo*/
-
-    float: left;
-    width:25%;
+    
+    display: flex;
+    width: 25%;
     height: auto;
    
 }
 
 article{
-    
+
     width: 50%;
     height: auto;
     background-color: #f2f2f2;
@@ -52,7 +94,7 @@ article{
 
 .aside_right{
 
-    float: right;
+    display: flex;
     width: 25%;
     height: auto;    
 }
@@ -101,6 +143,18 @@ footer{
 
 }
 
+@media screen and (min-width) {
+
+    aside{
+
+        flex: 25%;
+    }
+
+    article{flex:50%;}
+
+    .aside_right{ flex: 25%;}
+    
+}
 
 
 
