@@ -1,0 +1,71 @@
+html{
+    
+    font-family: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'), Helvetica, sans-serif;
+    -webkit-background-size: cover; /* Compatibilidad navegador Safari */
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #970043;
+}
+
+body{
+margin:0;
+}
+
+aside{/*Estilo del lateral*/
+
+    box-sizing: border-box;
+    width: 25%;
+    height: 100%;
+
+}
+
+article{
+
+    box-sizing: border-box;
+    margin-left: 25%;
+    width: 50%;
+    height: auto;
+    background-color: #f2f2f2;
+    
+}
+
+.aside_dr{
+
+    box-sizing: border-box;
+    margin-left: 75%;
+    width: 25%;
+    height: auto;
+    
+}
+
+p::first-letter{
+
+font-size: 100%;
+font-weight: bold;
+color: black;
+
+}
+
+
+header{ /*Estilo encabezado*/
+
+    box-sizing: border-box;
+    margin: 10px 10px 10px 10px;
+    background-color: #ffd100;
+    color: #4c3803;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding: 1rem; /*Busca que es un rem*/
+
+}
+
+footer{
+
+    background-color: #ffd100;
+}
+
+
+
+
