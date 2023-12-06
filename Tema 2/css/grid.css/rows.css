@@ -11,7 +11,8 @@ body{
 .grid_container{
 
   display: grid;
-  width:80%;
+  margin: 0 auto;
+  width: 80%;
   grid-template-columns: auto auto auto;
   line-height: 150px;
   border: 1px solid black;
