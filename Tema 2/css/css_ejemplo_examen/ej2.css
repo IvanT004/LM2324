@@ -5,25 +5,58 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(52, 49, 49);
     padding: 1rem;
-    padding: 0px;
     margin: 0px;
 }
 
 .caja_padre{
 
-   
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    max-width: 1170px;
+    padding: 1em;
+    margin: auto;
+    box-shadow: 2rem;
+
 }
+
+div{padding: 1em;}
 
 .caja_datos{
+    
+    color: white;
+    background-color: rgb(11, 76, 26);
 
-    background-color: bisque;
 }
 
-.caja_formulario{
-
+form{ 
     display: grid;
     grid-template-columns: auto auto;
-    background-color: aqua;
+    grid-row: 10% 10% 10% 50% 20%;
+}
+
+.caja_formulario input,textarea{
+
+    width: 100%;
+    border: 1px solid black;
+}
+.caja_formulario input:focus {
+
+    border: 3px solid gold;
+}
+
+.caja_formulario textarea:focus {
+
+    border: 3px solid gold;
+}
+
+.caja_formulario #enviar{
+
+    background-color: rgb(11, 76, 26);
+    color: white;
+}
+.caja_formulario #enviar:hover:focus{
+
+    opacity: 10%;
 }
 
 
@@ -38,4 +71,17 @@ body{
     grid-area: 'enviar'; 
     grid-column: 1 / span 2;
     width: 100%;
+}
+
+@media  screen and (max-width:700px) {
+
+    .caja_padre{
+
+        max-width: 1170px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color:violet;
+
+    }
+    
 }
