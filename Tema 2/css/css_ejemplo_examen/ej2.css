@@ -13,26 +13,34 @@ body{
     display: grid;
     grid-template-columns: 1fr 2fr;
     max-width: 1170px;
-    padding: 1em;
     margin: auto;
-    box-shadow: 2rem;
-
+    box-shadow:
+    0 0 0 2em #6b6566,
 }
 
-div{padding: 1em;}
+
 
 .caja_datos{
     
     color: white;
     background-color: rgb(11, 76, 26);
 
+
 }
+
+div{padding: 1em;}
+
 
 form{ 
     display: grid;
     grid-template-columns: auto auto;
     grid-row: 10% 10% 10% 50% 20%;
+    padding: 1em;
 }
+
+input{height: 100%;}
+
+
 
 .caja_formulario input,textarea{
 
@@ -54,9 +62,14 @@ form{
     background-color: rgb(11, 76, 26);
     color: white;
 }
-.caja_formulario #enviar:hover:focus{
+.caja_formulario #enviar:hover{
 
-    opacity: 10%;
+    opacity: 90%;
+}
+
+.caja_formulario #enviar:focus{
+
+    opacity: 90%;
 }
 
 
@@ -75,13 +88,38 @@ form{
 
 @media  screen and (max-width:700px) {
 
+    body{
+
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(52, 49, 49);
+        margin: 0px;
+    }
+
     .caja_padre{
 
+        display: flex;
+        flex-direction: column-reverse;
         max-width: 1170px;
         margin-right: auto;
         margin-left: auto;
-        background-color:violet;
 
+    }
+
+    div{padding: 2em;}
+
+    .caja_datos{
+
+        color: white;
+        background-color: rgb(11, 76, 26);
+        order: 1;
+    
+    }
+
+    form{ 
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row: 10% 10% 10% 50% 20%;
+        order: 2;
     }
     
 }
