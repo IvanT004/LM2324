@@ -14,8 +14,7 @@ body{
     grid-template-columns: 1fr 2fr;
     max-width: 1170px;
     margin: auto;
-    box-shadow:
-    0 0 0 2em #6b6566,
+    box-shadow: 0 0 0 2em #6b6566;
 }
 
 
