@@ -1,0 +1,158 @@
+*{box-sizing: border-box;}
+
+header nav a:hover,input:hover{
+
+    cursor: progress;
+}
+
+header{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: #908d8d;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 5px dashed #0d6427;
+}
+
+header nav a {
+
+    margin-right: 15px;
+}
+
+header input{
+
+    grid-column-end: auto;
+    border: none;
+    padding: 2px;
+    background-color: #0d6427;
+    border-radius: 1.25rem;
+    
+}
+
+aside img{
+
+    border-radius: 30px;
+}
+
+body{
+
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+    background-color: #eee;
+    color: #434344;
+    font-family: 'Poppins';
+    font-weight: 300px;
+    text-align: justify;
+
+}
+
+header a, main nav a{
+
+    color: #434344;
+    text-decoration: none;
+
+}
+
+.contenedor{
+
+    
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #fff;
+}
+
+main{
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 50px; 
+        
+        font-size: 32px;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+       
+}
+
+main p{
+
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+main h2{
+
+    color: #ada70a;
+}
+
+main nav{
+
+    padding: 20px;
+    border-top: 3px solid #0d6427;
+    background-color: #f9f9f9;
+    margin-top: 1rem;
+    font-size: .75rem;
+}
+
+main nav ul li{
+
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+ul{
+
+    text-decoration: none;
+    list-style: none;
+}
+
+footer{
+
+    background-color: #0d6427;
+    width: 12px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+
+}
+
+footer a{
+
+    text-decoration: none;
+    color: white;
+}
+
+
+@media screen and (max-width:760px) {
+
+    body{
+
+        display: flex;
+        flex-direction: column;
+    }
+    
+    main{
+
+        display: flex;
+        flex-direction: row;
+        grid-template-columns: 1fr;
+        order: 2;
+
+    }
+
+    header
+
+    main nav{
+
+        display: flex;
+        order: 3;
+    }
+
+}    
+    
+    
+
+
