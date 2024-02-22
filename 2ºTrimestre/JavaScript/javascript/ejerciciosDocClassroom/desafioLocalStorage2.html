@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LocalStorage2</title>
+    <title>Fecha y Hora profesor</title>
 </head>
 <body>
-    
-    <p id="mostrar"></p>
-
+    <p id="texto"></p>
     <script>
-
         function cargarPagina(){
+            var visitas = localStorage.getItem("ultimaFechaHora");
+            var hoy = new Date();
+            var ahora = hoy.toLocaleString();
+            if(visitas!=null){
 
-            let visitas= localStorage.getItem("visitas");
-            let fecha = new Date();
-
-            if(visitas!=null || visitas==null){
-
-                visitas = parseInt(visitas)
-                document.getElementById("mostrar").innerHTML = "Visitaste esta pagina en tu "+visitas+" vez, a las "+ fecha;
-                visitas = visitas + 1;
-                localStorage.setItem("visitas", visitas);
+                // Se conecto alguna vez
+            document.getElementById("texto").innerHTML="Se conecto la ultima vez el dia"+visitas;
             }
+            else{
 
+                // Es la primera vez que se conecta
+            document.getElementById("texto").innerHTML="Hasta ahora mismo, nunca se habia conectado";
+            }
+            localStorage.setItem("ultimaFechaHora",ahora);
         }
 
-        window.onload = cargarPagina();
+    window.onload = cargarPagina();
     </script>
 </body>
 </html>
