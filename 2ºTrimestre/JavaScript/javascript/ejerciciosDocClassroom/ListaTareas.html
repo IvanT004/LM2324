@@ -11,6 +11,7 @@
     <button onclick="anadirTarea()">Añadir tarea</button>
     <ul id="lista">
     </ul>
+    <p id="mensaje"></p>
 
     <script>
 
@@ -20,17 +21,25 @@
 
             var lista = document.getElementById("lista");
             var elemento = document.createElement("li");
-            var nuevo = document.getElementById("tarea").value; 
-            elemento.textContent = nuevo;
-            lista.appendChild(elemento);
-            problemas.push(elemento);
-            var cadena = "";
-            for(var i=0; i<problemas.length; i++){
+            var nuevo = document.getElementById("tarea").value;
+           
+            if(nuevo != ''){
+                document.getElementById("mensaje").textContent="";
+                elemento.textContent = nuevo;
+                lista.appendChild(elemento);
+                problemas.push(elemento);
+                var cadena = "";
+            
+                for(var i=0; i<problemas.length; i++){
 
-                cadena = cadena + problemas[i].textContent +",";
-            }
-            localStorage.setItem("problemas", cadena);
-
+                    cadena = cadena + problemas[i].textContent +",";
+                    
+                }
+                localStorage.setItem("problemas", cadena);
+                
+            
+            }else{document.getElementById("mensaje").textContent="Debes introducir una tarea";}
+            
         }
 
         function cargarPagina(){
@@ -38,12 +47,20 @@
             let cadenaTareas = localStorage.getItem("problemas");
             if(cadenaTareas!=null){
                 //Tengo tareas pendientes
-                var elemento = document.createElement("li");
-                var lista = document.getElementById("lista");
-                elemento.textContent = cadenaTareas;
-                lista.appendChild(elemento);
+                
+                 var ElementosDiv = localStorage.problemas.split(",");//cadenaTareas.split(",");
+
+                for(i=0; i<ElementosDiv.length; i++){
+                    var elemento = document.createElement("li");
+                    var lista = document.getElementById("lista"); 
+                    elemento.textContent = ElementosDiv[i];
+                    lista.appendChild(elemento);
+                }  
+               
             }else{
                 //No tengo nada que mostrar
+                document.getElementById("mensaje").textContent="¡Bien hecho!, no tienes tareas pendientes por ahora"
+            
             }
         }
 
@@ -51,3 +68,4 @@
     </script>
 </body>
 </html>
+
