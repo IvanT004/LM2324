@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/CompPeso.css"> -->
+    <title>CompPeso</title>
+</head>
+<body>
+    
+    <script>
+
+        function cargarPagina(){
+
+            let visitas= localStorage.getItem("visitas");
+            var PesoInicial = document.getElementById("peso").value;
+
+            if(visitas!=null){
+                
+                localStorage.setItem("visitas", visitas);
+            }else{
+
+                document.getElementById("bienvenida").textContent = "¡Bienvenido a Tufit Now!";
+                localStorage.setItem("peso",PesoInicial);
+            }
+            
+            
+            window.onload = cargarPagina(); 
+        }
+        
+        
+
+    </script>
+    <!-- <div class="caja"> -->
+
+        <h2 id="bienvenida"></h2>
+        <img src="images/pesas.jpg" alt="imagen inicio">
+        <input id="peso" type="text" placeholder="Introduzca su peso aquí">
+        <p>Introduce tu peso aquí</p>
+        <button onclick="cargarPagina()">Guardar</button>
+    <!-- </div> -->
+
+</body>
+</html>
