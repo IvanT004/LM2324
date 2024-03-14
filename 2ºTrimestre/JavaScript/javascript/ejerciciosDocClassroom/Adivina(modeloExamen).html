@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina</title>
+</head>
+<body>
+    
+    <div id="contenido">
+    <h2>¡Adivina el número en tiempo record!</h2>
+    <h4>He pensado en un número de 3 cifras...</h4>
+    <p id="numero"></p>
+    <p><button onclick="aleatorio()">Comenzar</button>
+    </div>
+
+    <script>
+
+        function aleatorio(){
+
+            var contenido = document.getElementById("contenido");
+            min = Math.ceil(100);
+            max = Math.floor(1000);
+            numero = Math.floor(Math.random() * (1000 - 100) + 100);
+            document.getElementById("numero").innerHTML=numero;
+            contenido.innerHTML+="<p><input type='text'></p>";
+            contenido.innerHTML+="<p><button onclick='comprobar()'>Comprobar</buttom></p>";
+    
+        }
+
+    </script>
+</body>
+</html>
