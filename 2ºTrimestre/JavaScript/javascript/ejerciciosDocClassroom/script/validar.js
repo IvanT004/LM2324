@@ -53,7 +53,7 @@ function validaPassword(){
 
 function validarDNI(){
     let letra = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'] 
-    //var cadena = document.getElementById("dni").value; //DNI COMPLETO
+    var cadena = document.getElementById("dni").value; //DNI COMPLETO
     limpia();
     var numero = parseInt(cadenaLimpia.substring(0,8)); //Parte numerica
     var letraUsuario = cadena[8];//Letra escrita por el usuario
