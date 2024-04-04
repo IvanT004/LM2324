@@ -14,7 +14,16 @@
     <script>
         $(document).ready(function(){
             $("#boton").click(function(){
-                alert($("#caja").val());
+                var valor = parseInt($("#caja").val());
+
+                if(valor>=18){
+                    alert("Eres mayor de edad");
+                }else if(isNaN(valor)){
+                    alert("Por favor, introduce solo números");
+                }else{
+                    alert("Eres menor de edad");
+                }
+                
             });
         });
     </script>
