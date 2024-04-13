@@ -12,6 +12,15 @@ texto “Jose Luis Núñez tiene el rol de administrador”.-->
     <title>AJAX3</title>
 </head>
 <body>
-    
+    <p id="objetivo"></p>
+    <script>
+        $.when($.get("LiteServer/Esqueletos_jquery_/1.json"),$.get("LiteServer/Esqueletos_jquery_/2.json")).then(function (r1,r2){
+
+            let obj1 = r1[0];
+            let obj2 = r2[0];
+            let mensaje=obj1.nombre + ' ' + obj1.apellidos + ' tiene el rol de ' + obj2.rol;
+            $("#objetivo").text(mensaje);
+        });
+    </script>
 </body>
 </html>
