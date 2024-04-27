@@ -12,12 +12,14 @@ el párrafo denominado “objetivo” la dirección IP pública de nuestro route
     
     <p id="objetivo"></p>
     <script>
-        $.getJSON("https://jsonip.com").done(function (a) {  
+        $(document).ready(function(){
+        $.get("https://jsonip.com").done(function (a) {  
             
-            $("#objetivo").text("La dirección pública del router es: " + a.ip);
+            $("#objetivo").text(a['ip']);
         }).fail(function (e){
-            $("#objetivo").text("Se ha producido un error " + a.ip);
-        });
+            $("#objetivo").text("Se ha producido un error " + e[status]);
+        })
+    });
     </script>
 </body>
 </html>

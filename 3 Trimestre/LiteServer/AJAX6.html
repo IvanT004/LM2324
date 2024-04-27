@@ -19,9 +19,9 @@ mostrar un mensaje de error.-->
                 var ubicacion = $("#ubicacion").val();
 
                 $.ajax({
-                    url:"http://openweathermap.org/data/2.5/find?q=" + ubicacion + '&units=metric&appid=b6907d289e10d714a6e88b30761fae22',
+                    url:"http://api.openweathermap.org/data/2.5/weather?q=" + ubicacion + '&appid=eba114bff280b4d8179fdb772d7dfbcd&units=metric',
                     success:function(result,status,xhr){
-                        $("#objetivo").html("En Sevilla hace " + result.main.temp);
+                        $("#objetivo").html("En "+ ubicacion+" hace " + result.main.temp+" ºC");
                     },
                     error: function(xhr,status,error){
                         $("#objetivo").text(status+" "+error+" "+xhr.status+" : Ha habido un fallo con el servidor");
