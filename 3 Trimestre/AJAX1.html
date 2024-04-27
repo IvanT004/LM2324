@@ -26,6 +26,18 @@ asociarles el tamaño en formato legible.-->
     <script>
         $("#enlaces").each(function(a){
             
+            $("a.enlaces").each(function(){ // Con esto barremos el documento buscando elementos tipo anchor tag y clase enlaces
+            var link = this;
+            $.ajax({
+                type: "HEAD",   // https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+                url: link.href, // Dirección del servidor
+                complete: function (xhr){
+                    var size = xhr.getResponseHeader('Content-Length');
+                    // Añadimos a los links el tamaño
+                    $(link).append(' ('+unidadesLegibles(size)+')');
+                }
+            })
+        })
             
         })
     </script>
