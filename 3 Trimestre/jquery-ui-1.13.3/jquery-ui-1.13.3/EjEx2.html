@@ -73,12 +73,12 @@
     </div>
     <script>
 
-        var pagina = {};
+    $(document).ready(function () {
         
-        $(document).ready(function () {
-
+        var pagina = {};
+     
             pagina.AJAX=function(){
-
+    
                 $.ajax({
 
                     url:"https://gutendex.com/books/",
@@ -86,34 +86,37 @@
                     success:function(datos){
                         console.log(datos);
                         pagina.datos=datos;
+                        pagina.datLibro();
+
                     },
                     error:function(error){
+                        console.log(error);
+                        $("#resultados").add("p").text("Se ha producido un error al intentar establecer una conexión con el servidor: "+ error.responseJSON.detail + " error "+ error.status);
                     }
                     });
             } 
 
             $("#btn-libro").click(function(){
-                pagina.AJAX();
-                pagina.mecanismo();
-            })
-            
-            pagina.mecanismo=function(){
-                if($("#codLibro")==''){
-                    pagina.catalogo();
-                }else{
-                    pagina.libro();
-                }
+                pagina.codLib=$("#codLibro").val();
+                pagina.AJAX();  
+             
+
+            pagina.datLibro=function(){
+                for(var i=0; i<pagina.datos.results.length; i++){
+                    if(pagina.datos.results[i].id==pagina.codLib){
+                    
+                       pagina.contenedor=$("#resultados");
+                       pagina.contenedor.append("<p> Título libro: " + pagina.datos.results[i].title+"</p>");
+                       pagina.contenedor.append("<p>Autor: " + pagina.datos.results[i].authors[0].name+"</p>");
+                       pagina.contenedor.append(+"<img src="+pagina.datos.results[i].formats["image/jpeg"]+"alt='Foto Libro'"+">");
+                       pagina.contenedor.append("<a href ="+pagina.datos.results[i].formats["text/html"]+"target='_blank'>");
+                       pagina.contenedor.append("<p>"+"Número de descargas: " + pagina.datos.results[i].download_count + "</p>");
+                    }else{
+                        $("#resultados").add("p").text("El codigo " + pagina.codLib + " no existe en la Base de Datos. Por favor inténtelo de nuevo.")
+                    }   
+                }  
             }
-            
-            pagina.libro=function(){
-                $("#resultados").add("<p></p>")
-                
-                pagina.titulo=pagina.datos.results[0].title;
-                pagina.autor=pagina.datos.results[0].authors[0].name;
-                pagina.imagen=pagina.datos.results[0].formats.text/html;
-                pagina.enlace=pagina.datos.results[0].formats.text/plain;
-            }
-                
+          });
         });
     </script>
 </body>
