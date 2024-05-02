@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alexandria">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Visualizador libros</title>
+    <!-- Aquí añadimos el código para poder trabajar con jQuery -->
+    <style>
+        body {
+            font-family: 'Alexandria', sans-serif;
+        }
+        h1{
+            font-size: xx-large;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .contenedor {
+            display: flex;
+            flex-wrap:wrap;
+            flex-direction: column;
+           
+        }
+        .formulario {
+            width: 80%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            background-color: rgb(133, 181, 197);
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 10px 10px 10px #7c7e8b;
+            overflow:auto;
+        }
+        .formulario > * {
+            margin: 10px;
+            padding: 10px;
+        }
+        input, label {
+            font-size: 1.5em;
+        }
+        button {
+            background-color:#091661;
+            font-size: x-large;
+            height: 60px;
+            width: 25%;
+            border-radius: 20px;
+            color: white;
+            margin-left: 2%;
+            margin-top: 1%;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="formulario">
+            <h1>Gutendex API</h1>
+            <label for="codlibro">Código Libro:</label>
+            <input type="number" name="codLibro" id="codLibro" min="1">
+            <br>
+            <label for="botones">Acción:</label>
+            <button id="btn-libro">Obtener libro</button>
+            <button id="btn-todos">Ver todos</button>
+            <div id="resultados">
+                <!-- Aqui cargaremos los resultados-->
+            </div>
+        </div>
+    </div>
+    <script>
+
+        var pagina = {};
+        
+        $(document).ready(function () {
+
+            pagina.AJAX=function(){
+
+                $.ajax({
+
+                    url:"https://gutendex.com/books/",
+                    dataType:'json',
+                    success:function(datos){
+                        console.log(datos);
+                        pagina.datos=datos;
+                    },
+                    error:function(error){
+                    }
+                    });
+            } 
+
+            $("#btn-libro").click(function(){
+                pagina.AJAX();
+                pagina.mecanismo();
+            })
+            
+            pagina.mecanismo=function(){
+                if($("#codLibro")==''){
+                    pagina.catalogo();
+                }else{
+                    pagina.libro();
+                }
+            }
+            
+            pagina.libro=function(){
+                $("#resultados").add("<p></p>")
+                
+                pagina.titulo=pagina.datos.results[0].title;
+                pagina.autor=pagina.datos.results[0].authors[0].name;
+                pagina.imagen=pagina.datos.results[0].formats.text/html;
+                pagina.enlace=pagina.datos.results[0].formats.text/plain;
+            }
+                
+        });
+    </script>
+</body>
+</html>
+
+
+
+<!-- 
+   <script>
+        var pagina = {};
+
+        $(document).ready(function () {
+            pagina.AJAX();
+        });
+
+        pagina.AJAX=function(){
+
+            $.ajax({
+
+                url:"https://gutendex.com/books/",
+                dataType:'json',
+                success:function(datos){
+                    console.log(datos);
+                    pagina.respuesta=datos;
+                    pagina.procesar();
+                },
+                error:function(error){
+
+                }
+            });
+        }
+
+        pagina.procesar=function(){
+           
+            pagina.titulo=pagina.respuesta.results[i].title;
+            pagina.autor=pagina.respuesta.results[0].authors[0].name;
+            pagina.imagen=;
+        } -->
+   
