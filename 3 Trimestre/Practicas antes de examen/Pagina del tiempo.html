@@ -17,8 +17,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             /* Dimensión y diseño de div */
-            width: 100vh;
-            height: 20vw;
+            width: 40%;
+            height: 60%;
             text-align: center;
             background-color: #63A0BD;  
             padding: 20px;
@@ -29,9 +29,11 @@
 
         body{
 
-            background-image: url("nubes.gif");
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: url(nubes.gif) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+             background-size: cover;
             font-family: Arial, sans-serif;
         }
         
@@ -45,7 +47,7 @@
     
     <h2>¡Bienvenido a la web del Tiempo!</h2>
     <input type="text" placeholder="Indique la ciudad" id="ubicacion"><button id="cargar"><img src="magnifying-glass-solid.svg" width="20px"></button>
-
+    <p id="error"></p>
     </div>
     
 
@@ -69,6 +71,11 @@
                             pagina.estructura= $("#interfaz");
                             pagina.estructura.text("");
                             pagina.procesaDatos();
+                        },
+
+                        error:function(datos){
+                            
+                            $("#error").text("Ha habido un error al intentar obtener una respuesta del servidor: "+ datos.statusText + " " + datos.status);
                         }
                     });
         }
