@@ -22,6 +22,7 @@
             display: flex;
             flex-wrap:wrap;
             flex-direction: column;
+            text-align: center;
            
         }
         .formulario {
@@ -54,11 +55,19 @@
             margin-top: 1%;
         }
         .caja{
-            margin: 10px 0px 20px 0px;
+            margin: 10px 10px 20px 10px;
+            border-radius: 20px;
             padding: 10px;
             background-color: #e27962;
             width: 40%;
             text-align: center;
+            
+        }
+        #resultados{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
         }
        
     </style>
@@ -88,11 +97,13 @@
                     $("#resultados").empty();
                 $.get("https://gutendex.com/books/" + codlibro).done(function(respuesta){
                     console.log(respuesta);
-                    $("#resultados").append("<p>"+"<b>Título del libro: </b>"+respuesta.title+"</p>");
-                    $("#resultados").append("<p>"+"<b>Nombre del autor: </b>"+respuesta.authors[0].name+"</p>");
-                    $("#resultados").append("<img src="+respuesta.formats['image/jpeg']+">"+"<br>");
-                    $("#resultados").append("<a href="+respuesta.formats['text/plain; charset=us-ascii']+">"+"Enlace a la descarga del libro"+"</a>");
-                    $("#resultados").append("<p>"+"<b> Número de descargas: </b>"+respuesta.download_count+"</p>");
+                    var caja=$("<div class='caja'></div>");
+                    caja.append("<p>"+"<b>Título del libro: </b>"+respuesta.title+"</p>");
+                    caja.append("<p>"+"<b>Nombre del autor: </b>"+respuesta.authors[0].name+"</p>");
+                    caja.append("<img src="+respuesta.formats['image/jpeg']+">"+"<br>");
+                    caja.append("<a href="+respuesta.formats['text/plain; charset=us-ascii']+" target='_blank'>"+"Enlace a la descarga del libro"+"</a>");
+                    caja.append("<p>"+"<b> Número de descargas: </b>"+respuesta.download_count+"</p>");
+                    $("#resultados").append(caja);
 
                 }).fail(function(){
                     $("#resultados").append("Por favor, asegurase de que el código que ha introducido pertenece a un libro.");
@@ -112,11 +123,13 @@
                     caja.append("<p>"+"<b>Título del libro: </b>"+respuesta.results[i].title+"</p>");
                     caja.append("<p>"+"<b>Nombre del autor: </b>"+respuesta.results[i].authors[0].name+"</p>");
                     caja.append("<img src="+respuesta.results[i].formats['image/jpeg']+">"+"<br>");
-                    caja.append("<a href="+respuesta.results[i].formats['text/plain; charset=us-ascii']+">"+"Enlace a la descarga del libro"+"</a>");
+                    caja.append("<a href="+respuesta.results[i].formats['text/plain; charset=us-ascii']+" target='_blank'>"+"Enlace a la descarga del libro"+"</a>");
                     caja.append("<p>"+"<b> Número de descargas: </b>"+respuesta.results[i].download_count+"</p>");
                     $("#resultados").append(caja);
                 }   
-            }).fail(function(){});
+            }).fail(function(){
+
+            });
         });
     });
 
