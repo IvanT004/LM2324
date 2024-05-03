@@ -71,88 +71,27 @@
             </div>
         </div>
     </div>
-    <script>
+    <script>    
 
     $(document).ready(function () {
-        
-        var pagina = {};
-     
-            pagina.AJAX=function(){
-    
-                $.ajax({
+        $("#btn-libro").click(function(){
+            let codlibro=$("#codLibro").val();
+            if(codlibro!=""){
+                //El usuario habia escrito algo
+                $.get("https://gutendex.com/books/" + codlibro).done(function(respuesta){
+                    console.log(respuesta);
+                    $("resultados").append("<p>"+respuesta.title+"</p>");
+                    $("resultados").append("<p>"+respuesta.authors[0].name+"</p>");
+                    $("resultados").append("<img src="+respuesta.formats['image/jpeg']+">");
 
-                    url:"https://gutendex.com/books/",
-                    dataType:'json',
-                    success:function(datos){
-                        console.log(datos);
-                        pagina.datos=datos;
-                        pagina.datLibro();
-
-                    },
-                    error:function(error){
-                        console.log(error);
-                        $("#resultados").add("p").text("Se ha producido un error al intentar establecer una conexión con el servidor: "+ error.responseJSON.detail + " error "+ error.status);
-                    }
-                    });
-            } 
-
-            $("#btn-libro").click(function(){
-                pagina.codLib=$("#codLibro").val();
-                pagina.AJAX();  
-             
-
-            pagina.datLibro=function(){
-                for(var i=0; i<pagina.datos.results.length; i++){
-                    if(pagina.datos.results[i].id==pagina.codLib){
-                    
-                       pagina.contenedor=$("#resultados");
-                       pagina.contenedor.append("<p> Título libro: " + pagina.datos.results[i].title+"</p>");
-                       pagina.contenedor.append("<p>Autor: " + pagina.datos.results[i].authors[0].name+"</p>");
-                       pagina.contenedor.append(+"<img src="+pagina.datos.results[i].formats["image/jpeg"]+"alt='Foto Libro'"+">");
-                       pagina.contenedor.append("<a href ="+pagina.datos.results[i].formats["text/html"]+"target='_blank'>");
-                       pagina.contenedor.append("<p>"+"Número de descargas: " + pagina.datos.results[i].download_count + "</p>");
-                    }else{
-                        $("#resultados").add("p").text("El codigo " + pagina.codLib + " no existe en la Base de Datos. Por favor inténtelo de nuevo.")
-                    }   
-                }  
+                }).fail(function(fallo){})
             }
-          });
         });
+        $("#btn-todos").click(function(){
+
+        });
+    });
+
     </script>
 </body>
 </html>
-
-
-
-<!-- 
-   <script>
-        var pagina = {};
-
-        $(document).ready(function () {
-            pagina.AJAX();
-        });
-
-        pagina.AJAX=function(){
-
-            $.ajax({
-
-                url:"https://gutendex.com/books/",
-                dataType:'json',
-                success:function(datos){
-                    console.log(datos);
-                    pagina.respuesta=datos;
-                    pagina.procesar();
-                },
-                error:function(error){
-
-                }
-            });
-        }
-
-        pagina.procesar=function(){
-           
-            pagina.titulo=pagina.respuesta.results[i].title;
-            pagina.autor=pagina.respuesta.results[0].authors[0].name;
-            pagina.imagen=;
-        } -->
-   
