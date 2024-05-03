@@ -53,6 +53,13 @@
             margin-left: 2%;
             margin-top: 1%;
         }
+        .caja{
+            margin: 10px 0px 20px 0px;
+            padding: 10px;
+            background-color: #e27962;
+            width: 40%;
+            text-align: center;
+        }
        
     </style>
 </head>
@@ -78,17 +85,38 @@
             let codlibro=$("#codLibro").val();
             if(codlibro!=""){
                 //El usuario habia escrito algo
+                    $("#resultados").empty();
                 $.get("https://gutendex.com/books/" + codlibro).done(function(respuesta){
                     console.log(respuesta);
-                    $("resultados").append("<p>"+respuesta.title+"</p>");
-                    $("resultados").append("<p>"+respuesta.authors[0].name+"</p>");
-                    $("resultados").append("<img src="+respuesta.formats['image/jpeg']+">");
+                    $("#resultados").append("<p>"+"<b>Título del libro: </b>"+respuesta.title+"</p>");
+                    $("#resultados").append("<p>"+"<b>Nombre del autor: </b>"+respuesta.authors[0].name+"</p>");
+                    $("#resultados").append("<img src="+respuesta.formats['image/jpeg']+">"+"<br>");
+                    $("#resultados").append("<a href="+respuesta.formats['text/plain; charset=us-ascii']+">"+"Enlace a la descarga del libro"+"</a>");
+                    $("#resultados").append("<p>"+"<b> Número de descargas: </b>"+respuesta.download_count+"</p>");
 
-                }).fail(function(fallo){})
+                }).fail(function(){
+                    $("#resultados").append("Por favor, asegurase de que el código que ha introducido pertenece a un libro.");
+                });
+            }else{
+                $("#resultados").empty();
+                $("#resultados").append("Por favor, debe introducir un código de libro. Si no dispone de uno puede presionar el botón <i>'Ver Todos'</i>");
             }
         });
         $("#btn-todos").click(function(){
-
+            $.get("https://gutendex.com/books/").done(function(respuesta){
+                $("#resultados").empty();
+                console.log(respuesta);
+                
+                for(var i = 0; i < respuesta.results.length;i++){
+                    var caja=$("<div class='caja'></div>");
+                    caja.append("<p>"+"<b>Título del libro: </b>"+respuesta.results[i].title+"</p>");
+                    caja.append("<p>"+"<b>Nombre del autor: </b>"+respuesta.results[i].authors[0].name+"</p>");
+                    caja.append("<img src="+respuesta.results[i].formats['image/jpeg']+">"+"<br>");
+                    caja.append("<a href="+respuesta.results[i].formats['text/plain; charset=us-ascii']+">"+"Enlace a la descarga del libro"+"</a>");
+                    caja.append("<p>"+"<b> Número de descargas: </b>"+respuesta.results[i].download_count+"</p>");
+                    $("#resultados").append(caja);
+                }   
+            }).fail(function(){});
         });
     });
 
