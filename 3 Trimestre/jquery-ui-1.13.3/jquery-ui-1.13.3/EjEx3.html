@@ -86,11 +86,59 @@
             {minDate:"0D",maxDate:"+1Y"});
         });
         $(document).ready(function () {
-            var fec_ent=$("#f_entrada").val();
-            // var fe_dia=;
-            var fech_sal=$("#f_salida").val();
+            var p1 = $("#totalDias");
+            var p2 = $("#totalPrecio");
+            $("#calculo").click(function(){
+                //Evitamos que se borren los datos introducidos por jquery al enviar los datos del formulario
+                event.preventDefault(); 
+                p1.empty();
+                p2.empty();
+                p1.append("Total días:");
+                p2.append("Precio:");
 
+                //Datos fecha entrada
+                var fec_ent=$("#f_entrada").val();
+                var fec_enDia= fec_ent.substr(0,2);
+                var fec_enMes= fec_ent.substr(3,2);
+                var fec_enAno= fec_ent.substr(6,9);
+
+                //Datos fecha salida
+                var fec_sal=$("#f_salida").val();
+                var fec_salDia=fec_sal.substr(0,2);
+                var fec_salMes=fec_sal.substr(3,2);
+                var fec_salAno=fec_sal.substr(6,9);
+
+                //Calculo de días 
+                var totalDias=parseInt(fec_salDia-fec_enDia)+parseInt((fec_salMes-fec_enMes)*30)+parseInt((fec_salAno-fec_enAno)*365);
+                $("#totalDias").append(" " + totalDias);
+
+                //Calculo de precio
+                var dato=$("input[type='number']");
+                var id;
+                var precio=0;
+                for(var i = 0; i < dato.length; i ++){
+                    if(dato[i].value=="1"){
+                        return id=dato[i].id;
+                    }
+                }
+                switch(id){
+
+                    case "num_individuales":
+                        p2.append(totalDias*25);
+                        break;
+
+                    case "num_dobles":
+                        p2.append(totalDias*45);
+                        break;
+
+                    case "num_triples":
+                        precio=totalDias*80;
+                        p2.append(precio);
+                        break;
+                }
         });
+
+    });
     </script>
 </body>
 </html>
