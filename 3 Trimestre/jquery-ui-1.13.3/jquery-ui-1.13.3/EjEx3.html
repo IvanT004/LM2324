@@ -132,7 +132,7 @@
                     beforeShow: function(input, inst) {
                     $(input).attr("readonly", true); // Deshabilita la edición directa del input
         }
-                });
+                    });
 
                 $("#f_salida").datepicker({
                     minDate: "+2D", // La fecha mínima es pasado mañana
@@ -141,6 +141,7 @@
                     $(input).attr("readonly", true); // Deshabilita la edición directa del input
         }
                 });
+                $("#num_individuales").attr("readonly", true);
             });
                 //Fin datepicker
 
