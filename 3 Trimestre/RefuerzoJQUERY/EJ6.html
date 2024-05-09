@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Flickr</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <h1>API Flickr</h1>
+    <p><label for="">Introduce un texto para buscar imágenes: </label><input type="text" placeholder="Username" id="texto"></p>
+    <p id="boton"><button>Buscar</button></p>
+    <p id="mostrar"></p>
+</body>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            
+            var texto = $("#texto").val();
+            $.ajax({
+
+                url:'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=36e7929e67f0f02877bac72f5c7d634a&text='+texto+'&format=json&nojsoncallback=1',
+                dataType:'json',
+                success:function(datos){
+                    $("#mostrar").append("Login: "+ datos.photos.photo[0].id + "<br>");
+                    $("#mostrar").append("ID: "+ datos.photos.photo[0].owner + "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].secret + "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].server+ "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].farm+ "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].title+ "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].ispublic+ "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].isfriend+ "<br>");
+                    $("#mostrar").append(datos.photos.photo[0].isfamily+ "<br>");
+
+                }
+            });
+        });
+    });
+</script>
+</html>

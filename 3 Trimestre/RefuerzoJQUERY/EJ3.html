@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API películas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+</head>
+<body>
+    <h1>Información de películas</h1>
+    <p><label for="">Introduce el nombre de una película: </label><input type="text" placeholder="Divergente" id="pelicula"></p>
+    <p id="boton"><button>Buscar</button></p>
+</body>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            
+            var titulo = $("#pelicula").val();
+            $.ajax({
+
+                url:'http://www.omdbapi.com/?apikey=1e8a3cbe&t=' + titulo,
+                dataType:'json',
+                success:function(datos){
+                    $("#boton").empty();
+                    $("#boton").append("Título de la película: "+ datos.Title + "<br>");
+                    $("#boton").append("Año de lanzamiento: "+ datos.Year + "<br>");
+                    $("#boton").append("Fecha de lanzamiento: "+ datos.Released + "<br>");
+                    $("#boton").append("Género: "+ datos.Genre + "<br>");
+                    $("#boton").append("Director: "+ datos.Director + "<br>");
+                    $("#boton").append("Guionista: "+ datos.Writer + "<br>");
+
+                }
+            });
+        });
+    });
+</script>
+</html>
