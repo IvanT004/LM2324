@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
     <h1>Información de películas</h1>
     <p><label for="">Introduce el nombre de una película: </label><input type="text" placeholder="Divergente" id="pelicula"></p>
     <p id="boton"><button>Buscar</button></p>
+    <div id="caja"></div>
 </body>
 <script>
     $(document).ready(function(){
@@ -22,13 +23,15 @@
                 url:'http://www.omdbapi.com/?apikey=1e8a3cbe&t=' + titulo,
                 dataType:'json',
                 success:function(datos){
-                    $("#boton").empty();
-                    $("#boton").append("Título de la película: "+ datos.Title + "<br>");
-                    $("#boton").append("Año de lanzamiento: "+ datos.Year + "<br>");
-                    $("#boton").append("Fecha de lanzamiento: "+ datos.Released + "<br>");
-                    $("#boton").append("Género: "+ datos.Genre + "<br>");
-                    $("#boton").append("Director: "+ datos.Director + "<br>");
-                    $("#boton").append("Guionista: "+ datos.Writer + "<br>");
+
+                    $("#caja").empty();
+                    $("#caja").append("Título de la película: "+ datos.Title + "<br>");
+                    $("#caja").append("Año de lanzamiento: "+ datos.Year + "<br>");
+                    $("#caja").append("Fecha de lanzamiento: "+ datos.Released + "<br>");
+                    $("#caja").append("Género: "+ datos.Genre + "<br>");
+                    $("#caja").append("Director: "+ datos.Director + "<br>");
+                    $("#caja").append("Guionista: "+ datos.Writer + "<br>");
+                    $("#caja").append("<img src="+datos.Poster+"/>")
 
                 }
             });

@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Flickr</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
+    <style>
+        #mostrar{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        #img{
+            margin: 10px 10px 20px 10px;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: #C6C7C4;
+            width: 40%;
+            text-align: center;
+        }
+        body{
+            background-color: #A2999E;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <h1>API Flickr</h1>
     <p><label for="">Introduce un texto para buscar imágenes: </label><input type="text" placeholder="Username" id="texto"></p>
     <p id="boton"><button>Buscar</button></p>
-    <p id="mostrar"></p>
+    <div id="mostrar"></div>
 </body>
 <script>
     $(document).ready(function(){
         $("button").click(function(){
             
             var texto = $("#texto").val();
+            
             $.ajax({
 
                 url:'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=36e7929e67f0f02877bac72f5c7d634a&text='+texto+'&format=json&nojsoncallback=1',
                 dataType:'json',
                 success:function(datos){
-                    $("#mostrar").append("Login: "+ datos.photos.photo[0].id + "<br>");
-                    $("#mostrar").append("ID: "+ datos.photos.photo[0].owner + "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].secret + "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].server+ "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].farm+ "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].title+ "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].ispublic+ "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].isfriend+ "<br>");
-                    $("#mostrar").append(datos.photos.photo[0].isfamily+ "<br>");
+
+                    $("#mostrar").empty();
+
+                    for(var i=0; i<datos.photos.photo.length; i++){
+                       
+                        var farm_id= datos.photos.photo[i].farm;
+                        var server_id= datos.photos.photo[i].server;
+                        var id= datos.photos.photo[i].id;
+                        var secret= datos.photos.photo[i].secret;
+                        var url_Tex_Img = "https://farm"+ farm_id +".staticflickr.com/"+ server_id +"/"+ id +"_"+ secret +".jpg"
+                        $("#mostrar").append("<div id='img'><img src=" + url_Tex_Img + ">"+"</div>")
+                    }
 
                 }
             });

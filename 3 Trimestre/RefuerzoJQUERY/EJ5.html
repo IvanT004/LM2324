@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Google Books</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        #caja{
+            background-color: #6B9080;
+            margin-top: 20px;
+            border-radius: 20px;
+            padding: 2rem;
+            width: 30%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            text-align: left;
+            max-height: 65%;
+            overflow: auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 13px;
+        }
+        div img{
+            position: absolute; /* se usa en caso de este div, donde tiene la altura y el ancho definido, sin esto top, right y left no funcionarían */
+            width: 100px;
+            right: 0; /* se debe usar para que margin 0 auto funcione */
+            left: 0; /* se debe usar para que margin 0 auto funcione */
+            margin: 0 auto; /* Esto lo centra */
+            padding-bottom: 1rem;
+        }
+        #justificado{text-align: justify;}
+        body{text-align: center; background-color: #CCE3DE;}
+        #estilo{color: #eaf4f4;}
+    </style>
+</head>
+<body>
+    <h1>Google Books</h1>
+    <p><label for="">Introduce un nombre de usuario: </label><input type="text" placeholder="Username" id="pelicula"></p>
+    <button>Buscar</button>
+    <div id="caja"></div>
+</body>
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+            
+            var pelicula = $("#pelicula").val();
+            $.ajax({
+
+                url:'https://www.googleapis.com/books/v1/volumes?q=intitle:'+pelicula+'&key=AIzaSyBy3BDrPhUEJ_uaHJABy9URahVzb2no9Zg',
+                dataType:'json',
+                success:function(datos){
+                    $("#caja").empty();
+                    $("#caja").append("<p><span id='estilo'>Título del libro: </span>"+ datos.items[0].volumeInfo.title + "</p>");
+                    $("#caja").append("<p><span id='estilo'>Autor: </span>"+ datos.items[0].volumeInfo.authors[0] + "</p>");
+                    $("#caja").append("<p><span id='estilo'>Editorial: </span>"+ datos.items[0].volumeInfo.publisher +"</p>");
+                    $("#caja").append("<p><span id='estilo'>Fecha de publicación: </span>" + datos.items[0].volumeInfo.publishedDate + "</p>");
+                    $("#caja").append("<p id='justificado'><span id='estilo'>Descripción: </span>" + datos.items[0].volumeInfo.description + "</p>");
+                    $("#caja").append("<p><span id='estilo'>Número de páginas: </span>" + datos.items[0].volumeInfo.pageCount + "</p>");
+                    $("#caja").append("<p><span id='estilo'>Género: </span>" + datos.items[0].volumeInfo.categories + "</p>");
+                    $("#caja").append("<p><span id='estilo'>Precio: </span>" + datos.items[0].saleInfo.listPrice.amount +"€" + "</p>");
+                    $("#caja").append("<img src=" + datos.items[0].volumeInfo.imageLinks.thumbnail + ">");
+
+                }
+            });
+        });
+    });
+</script>
+</html>
