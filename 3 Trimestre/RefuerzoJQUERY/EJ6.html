@@ -59,6 +59,10 @@
                         $("#mostrar").append("<div id='img'><img src=" + url_Tex_Img + ">"+"</div>")
                     }
 
+                },
+
+                error:function(){
+                    $("#mostrar").append("<p>"+"Ha habido un error al conectarse con el servidor"+"</p>");
                 }
             });
         });
