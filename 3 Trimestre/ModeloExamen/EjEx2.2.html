@@ -105,7 +105,7 @@
             $("#btn-producto").click(function(){
 
                 let codProducto=$("#codProducto").val();
-                if(codProducto!=""){
+                if(codProducto!="" && codProducto > 0){
                 //El usuario habia escrito algo
                     $("#resultados").empty();
                 $.ajax({
@@ -119,7 +119,6 @@
                         caja.append("<p>"+"<b>Nombre: </b>"+datos.title+"</p>");
                         caja.append("<p>"+"<b>Precio: </b>"+datos.price+"</p>");
                         caja.append("<p>"+"<b>Descripcion: </b>" + datos.description+">"+"<br>");
-                        caja.append("<p>"+"<b>Categoría: </b>"+ datos.category+"</p>");
                         caja.append("<p>"+"<img src="+datos.image+" width=30%></p>");
                         $("#resultados").append(caja);
                     },
@@ -151,7 +150,6 @@
                             caja.append("<p>"+"<b>Nombre: </b>"+datos[i].title+"</p>");
                             caja.append("<p>"+"<b>Precio: </b>"+datos[i].price+"</p>");
                             caja.append("<p>"+"<b>Descripcion: </b>" + datos[i].description+">"+"<br>");
-                            caja.append("<p>"+"<b>Categoría: </b>"+ datos[i].category+"</p>");
                             caja.append("<p>"+"<img src="+datos[i].image+" width=30%></p>");
                             $("#resultados").append(caja);
                         }
@@ -159,7 +157,7 @@
 
                     error:function(error){
                         console.log(error);
-                        $("#resultados").append("<p>No se ha podido contactar con el servidor o el ID que has proporcionado no existe</p>");
+                        $("#resultados").append("<p>Error cargando datos del servidor</p>");
                     }
                 });
                 
