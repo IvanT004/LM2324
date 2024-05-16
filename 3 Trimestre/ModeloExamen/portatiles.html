@@ -137,27 +137,32 @@
 
         $(document).ready(function(){
 
-            $("#reserva").click(function(){
+            $("#reserva").click(function(e){
+                e.preventDefault();
                 var checkbox = $(".carrito");
                 var carritos = 0;
                 var dia = $("#fecha").val();
                 var hora = $("#hora").val();
 
-
-                for(var i = 0; i < checkbox.length; i++){
-                    if(checkbox[i].checked==true){
-                        carritos += 1;
+                if(dia!=""){
+                    for(var i = 0; i < checkbox.length; i++){
+                        if(checkbox[i].checked==true){
+                            carritos += 1;
+                        }
                     }
+
+                    var portatiles = carritos * 15;
+
+                    $("#totalPortatiles").empty();
+                    $("#totalPortatiles").text("Nº Portátiles: ");
+                    $("#totalPortatiles").append(portatiles);
+
+                    $("#diaReserva").text("Reserva el " + dia + " de " + hora + " horas");
+
+                }else{
+                    $("#diaReserva").empty();
+                    $("#diaReserva").append("Debes seleccionar una fecha");
                 }
-
-                var portatiles = carritos * 15;
-
-                $("#totalPortatiles").empty();
-                $("#totalPortatiles").text("Nº Portátiles: ");
-                $("#totalPortatiles").append(portatiles);
-
-                $("#diaReserva").text("Reserva el " + dia + " de " + hora + " horas");
-
             });
         });
     </script>
