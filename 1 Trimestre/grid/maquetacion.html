@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetación con Grid</title>
+    <style>
+      *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 0.5rem;
+      }
+      header{
+        grid-column: 1 / span 3;
+        background-color: black;
+        padding: 0.5rem;
+        display: block;
+      }
+      #left{
+        background-color: #C98686;
+        padding: 2rem;
+        text-align: center;
+      }
+      article{
+        background-color: #454141;
+        text-align: center;
+        padding: 2rem;
+      }
+      #right{
+        background-color: #fff4ec;
+        text-align: center;
+        padding: 2rem;
+      }
+      footer{
+        background-color: #E7CFBC;
+        text-align: center;
+        padding: 2rem;
+        grid-column: 1 / span 3;
+      }
+      ul{
+        list-style: none;
+        text-align: center;
+      }
+      li{
+        float: left;
+        margin: 2rem;
+        padding: 1rem;
+      }
+      img{
+        float: left;
+        margin-right: 2rem;
+      }
+     a{
+        text-decoration: none;
+        color: white;
+      }
+      li:hover{background-color: rgba(255, 255, 255, 0.783); border-radius: 5px;}
+    </style>
+</head>
+<body>
+     <header>
+      <img src="valorant.png" alt="logo" width="5%">
+      
+      <nav>
+        <ul>
+          <li><a href="">Información del Juego</a></li>
+          <li><a href="https://playvalorant.com/es-es/media/" target="_blank">Contenido adicional</a></li>
+          <li><a href="https://playvalorant.com/es-es/news/" target="_blank">Noticias</a></li>
+          <li><a href="https://playvalorant.com/es-es/leaderboards/" target="_blank">Tabla de clasificación</a></li>
+          <li><a href="" target="_blank">Asistencia</a></li>
+          <li><a href="" target="_blank">Social</a></li>
+          <li><a href="https://valorantesports.com/" target="_blank">Esport</a></li>
+          <li><a href="https://merch.riotgames.com/es-es/collection/valorant/" target="_blank">Mechardising</a></li>
+        </ul>
+      </nav>
+    </header>
+    <aside id="left">Banner 1</aside>
+    <article>
+      <img src="https://i.pinimg.com/originals/2d/d1/f0/2dd1f0d601311527c878a67b6d74226b.gif" alt="gif" width="100%">
+    </article>
+    <aside id="right">Banner 2</aside>
+    <footer>Pie de página</footer>
+</body>
+</html>
