@@ -19,8 +19,9 @@
         grid-column: 1 / span 3;
         background-color: black;
         padding: 0.5rem;
-        display: block;
+        display: inline-block;
       }
+      header img{width:5%;}
       #left{
         background-color: #C98686;
         padding: 2rem;
@@ -41,6 +42,7 @@
         text-align: center;
         padding: 2rem;
         grid-column: 1 / span 3;
+  
       }
       ul{
         list-style: none;
@@ -60,11 +62,34 @@
         color: white;
       }
       li:hover{background-color: rgba(255, 255, 255, 0.783); border-radius: 5px;}
+      @media screen and (max-width:688px) {
+        body{
+          display: flex;
+          flex-direction: column;
+        }
+        nav, aside, article, footer {
+        width: 100%;
+        }
+        header img{
+         width: 20%;
+         justify-self: center;
+        }
+        header{
+          display: grid;
+          grid-column: auto;
+        }
+        ul{
+          display: grid;
+          grid-column: auto;
+        }
+        li{margin: 0.5rem; text-align: center;}
+
+      }
     </style>
 </head>
 <body>
      <header>
-      <img src="valorant.png" alt="logo" width="5%">
+      <img src="valorant.png" alt="logo">
       
       <nav>
         <ul>
