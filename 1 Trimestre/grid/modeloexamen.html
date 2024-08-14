@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maquetación de páginas</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+        body{
+            display: flex;
+            flex-direction: column;
+            font: 1.1em Helvetica, arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            
+        }
+        #left{
+            background-color: chartreuse;
+            text-align: center;
+            align-content: center;
+            width: 20%;
+        }
+        article{
+            background-color: rgb(148,17,57);
+            padding: 1rem;
+        }
+        #right{
+            
+            background-color: rgb(88, 110, 118);
+            color: white;
+            width: 10%;
+        }
+        li{
+            display: block;
+            padding: .5rem .1rem;
+            border: 1px dotted rgba(255,255,255,0.3);
+        }
+        footer{
+            background: linear-gradient(rgb(121,78,199),rgb(88,25,205));
+            font: 70% cursive;
+            text-align: center;
+            justify-content: center;
+        }
+        header{
+            background: linear-gradient(rgb(121,78,199),rgb(88,25,205));
+            font: 150% cursive;
+            text-align: center;
+            align-content: center;
+            height: 200px;
+        }
+        header,#left{
+            font-family: 'Ubuntu';
+        }
+        img{
+            max-width: 100%;
+            float: right;
+            margin: 1rem;
+            border: 5px dashed rgb(92,102,239);
+        }
+        header,nav,section,footer{
+            color: white;
+            padding: 10px;
+        }
+        main{
+            display: flex;
+            flex-direction: row;
+            overflow: scroll;
+        }
+        a:hover{background-color: rgb(92,102,239);}
+        ul{list-style: none;}
+
+        /* @media screen and() {
+            main{
+                display: flex;
+                flex-direction: column;
+                overflow: scroll;
+            }
+        } */
+    </style>
+</head>
+<body>
+    <header><h1>Tu anuncio aquí</h1></header>
+    <main>
+        <aside id="left">Otro anuncio</aside>
+        <article>
+            <h2>Encabezado nivel 2</h2>
+            <img src="https://picsum.photos/200" alt="imagen aleatoria">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit inventore illum minus. Placeat, minus repellat dignissimos molestiae consectetur, eos sint cum debitis deserunt expedita corporis ipsa. Ipsam, cum impedit.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum quisquam sunt obcaecati. Laboriosam vel optio earum perspiciatis, impedit alias fugiat dolore animi, quisquam facere tempora, obcaecati voluptatum nobis autem aliquam.</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio consequatur labore nihil blanditiis ducimus autem, ad aliquam aperiam, esse neque maxime accusantium deleniti quod harum quasi animi. Reiciendis, eveniet porro?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse nostrum est ea adipisci eius deleniti, repellendus quisquam at saepe voluptas, eos ipsum, sed iste soluta quia possimus vitae. Voluptas, ea.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam quos neque ratione, hic atque placeat eaque repellendus, accusamus cumque corporis commodi autem. Maxime dolorum, commodi blanditiis provident sunt ratione numquam.</p>
+        </article>
+        <aside id="right">
+            <nav>
+                <ul>
+                    <li><a href="#">Opción 1</a></li>
+                    <li><a href="#">Opción 2</a></li>
+                    <li><a href="#">Opción 3</a></li>
+                    <li><a href="#">Opción 4</a></li>
+                    <li><a href="#">Opción 5</a></li>
+                </ul>
+
+            </nav>
+        </aside>
+    </main>
+    <footer>Realizado por <a href="mailto:ivantellez04@iesamachado.org">Iván Téllez Cugat</a></footer>
+
+</body>
+</html>
